@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  string_identifier: MyString
+  integer_identifier: 1
+  description: MyText
+
+two:
+  string_identifier: MyString
+  integer_identifier: 1
+  description: MyText

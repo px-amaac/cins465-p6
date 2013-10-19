@@ -1,0 +1,31 @@
+<h1>Listing digital_object_identifiers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>String identifier</th>
+      <th>Integer identifier</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @digital_object_identifiers.each do |digital_object_identifier| %>
+      <tr>
+        <td><%= digital_object_identifier.string_identifier %></td>
+        <td><%= digital_object_identifier.integer_identifier %></td>
+        <td><%= digital_object_identifier.description %></td>
+        <td><%= link_to 'Show', digital_object_identifier %></td>
+        <td><%= link_to 'Edit', edit_digital_object_identifier_path(digital_object_identifier) %></td>
+        <td><%= link_to 'Destroy', digital_object_identifier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Digital object identifier', new_digital_object_identifier_path %>

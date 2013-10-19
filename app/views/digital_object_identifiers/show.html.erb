@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>String identifier:</strong>
+  <%= @digital_object_identifier.string_identifier %>
+</p>
+
+<p>
+  <strong>Integer identifier:</strong>
+  <%= @digital_object_identifier.integer_identifier %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @digital_object_identifier.description %>
+</p>
+
+<%= link_to 'Edit', edit_digital_object_identifier_path(@digital_object_identifier) %> |
+<%= link_to 'Back', digital_object_identifiers_path %>

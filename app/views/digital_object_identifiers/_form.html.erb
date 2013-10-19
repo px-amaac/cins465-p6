@@ -1,0 +1,29 @@
+<%= form_for(@digital_object_identifier) do |f| %>
+  <% if @digital_object_identifier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@digital_object_identifier.errors.count, "error") %> prohibited this digital_object_identifier from being saved:</h2>
+
+      <ul>
+      <% @digital_object_identifier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :string_identifier %><br>
+    <%= f.text_field :string_identifier %>
+  </div>
+  <div class="field">
+    <%= f.label :integer_identifier %><br>
+    <%= f.number_field :integer_identifier %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
