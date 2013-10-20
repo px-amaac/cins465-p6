@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019004910) do
+ActiveRecord::Schema.define(version: 20131019071036) do
+
+  create_table "digital_object_identifiers", force: true do |t|
+    t.string   "string_identifier"
+    t.integer  "integer_identifier"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

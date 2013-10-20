@@ -1,0 +1,10 @@
+DONE --Provide user authentication (sign up/sign in/sign out)
+Allow non-signed in users to look up the most recent URL associated with a DOI.  Require a user to be signed in for all other activities
+Allow users to create a new DOI.  
+DONE  --DOI must contain at least: unique number, name, and a description
+Allow DOIs to have a URL history.  
+Each URL must have a timestamp
+Only the user that creates a DOI can edit it (name, description, URL history)
+Allow users to comment on a DOI
+Allow users to view the details, history, and comments of any DOI
+Include a db/seeds.rb file so I can migrate and seed your database
