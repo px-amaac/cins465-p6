@@ -15,5 +15,14 @@
   <%= @digital_object_identifier.description %>
 </p>
 
+<p>
+  <strong>URL:</strong>
+  <% @digital_object_identifier.urls.each do |url| %>
+  	<p>
+  	<%= url.url %>
+  	</p>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_digital_object_identifier_path(@digital_object_identifier) %> |
 <%= link_to 'Back', digital_object_identifiers_path %>

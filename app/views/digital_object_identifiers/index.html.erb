@@ -6,6 +6,8 @@
       <th>String identifier</th>
       <th>Integer identifier</th>
       <th>Description</th>
+      <th>User Id</th>
+      <th>Current URL</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,6 +20,12 @@
         <td><%= digital_object_identifier.string_identifier %></td>
         <td><%= digital_object_identifier.integer_identifier %></td>
         <td><%= digital_object_identifier.description %></td>
+        <td><%= digital_object_identifier.user_id %></td>
+          <% if digital_object_identifier.urls.last %>
+            <td><%= digital_object_identifier.urls.first.url %></td>
+          <% else %>
+            <td></td>
+          <% end %>
         <td><%= link_to 'Show', digital_object_identifier %></td>
         <td><%= link_to 'Edit', edit_digital_object_identifier_path(digital_object_identifier) %></td>
         <td><%= link_to 'Destroy', digital_object_identifier, method: :delete, data: { confirm: 'Are you sure?' } %></td>

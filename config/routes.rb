@@ -1,11 +1,13 @@
 DigitalObjecIdentifier::Application.routes.draw do
-  resources :digital_object_identifiers
+  
+    resources :digital_object_identifiers
+      
 
   devise_for :users
 
   root :to => "digital_object_identifiers#index"
-
   resources :users
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

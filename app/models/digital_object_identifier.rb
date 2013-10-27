@@ -1,7 +1,13 @@
 class DigitalObjectIdentifier < ActiveRecord::Base
+	
+	belongs_to :user
+	has_many :urls, :dependent => :destroy
+	has_many :comments, :dependent => :destroy
 
-	validates :integer_identifier, presence: true, uniqueness: true, numericality: {only_integer: true}, length: 10
-	validates :name_identifier, presence: true, uniqueness: true, length: { maximum: 20 }
+	accepts_nested_attributes_for :urls
+
+	validates :integer_identifier, presence: true, uniqueness: true, numericality: { only_integer: true }, length: { maximum: 10 }
+	validates :string_identifier, presence: true, uniqueness: true, length: { maximum: 20 }
 	validates :description, presence: true, length: { maximum: 255 }
 	
 end

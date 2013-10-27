@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyString
+  digital_object_identifier_id: 
+
+two:
+  url: MyString
+  digital_object_identifier_id: 

@@ -11,15 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019071036) do
+ActiveRecord::Schema.define(version: 20131026223521) do
+
+  create_table "comments", force: true do |t|
+    t.string   "comment"
+    t.integer  "digital_object_identifier_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "digital_object_identifiers", force: true do |t|
     t.string   "string_identifier"
     t.integer  "integer_identifier"
     t.text     "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "digital_object_identifiers", ["user_id"], name: "index_digital_object_identifiers_on_user_id"
+
+  create_table "urls", force: true do |t|
+    t.string   "url"
+    t.integer  "digital_object_identifier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "urls", ["digital_object_identifier_id"], name: "index_urls_on_digital_object_identifier_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

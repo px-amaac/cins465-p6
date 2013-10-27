@@ -4,6 +4,7 @@ class CreateDigitalObjectIdentifiers < ActiveRecord::Migration
       t.string :string_identifier
       t.integer :integer_identifier
       t.text :description
+      t.references :user, index: true
 
       t.timestamps
     end
