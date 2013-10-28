@@ -1,7 +1,9 @@
 DigitalObjecIdentifier::Application.routes.draw do
   
-    resources :digital_object_identifiers
-      
+    resources :digital_object_identifiers do
+      resources :urls, only: [:create]
+    end
+
 
   devise_for :users
 

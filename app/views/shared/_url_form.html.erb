@@ -1,0 +1,6 @@
+<%= form_for([@digital_object_identifier, @url]) do |f| %>
+	<div class="field">
+    <%= f.text_field :url %>
+  </div>
+  <%= f.submit "Set New Url", class: "btn btn-success" %>
+<% end %>

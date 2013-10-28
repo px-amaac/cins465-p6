@@ -12,6 +12,7 @@ class DigitalObjectIdentifiersController < ApplicationController
   # GET /digital_object_identifiers/1
   # GET /digital_object_identifiers/1.json
   def show
+    @url = @digital_object_identifier.urls.build
   end
 
   # GET /digital_object_identifiers/new
@@ -45,7 +46,7 @@ class DigitalObjectIdentifiersController < ApplicationController
   # PATCH/PUT /digital_object_identifiers/1.json
   def update
     respond_to do |format|
-      if @digital_object_identifier.update(digital_object_identifier_params)
+      if @digital_object_identifier.update(edit_digital_object_identifier_params)
         format.html { redirect_to @digital_object_identifier, notice: 'Digital object identifier was successfully updated.' }
         format.json { head :no_content }
       else
@@ -74,5 +75,9 @@ class DigitalObjectIdentifiersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def digital_object_identifier_params
       params.require(:digital_object_identifier).permit(:string_identifier, :integer_identifier, :description, urls_attributes: [ :url ] )
+    end
+
+    def edit_digital_object_identifier_params
+      params.require(:digital_object_identifier).permit(:string_identifier, :integer_identifier, :description )
     end
 end
