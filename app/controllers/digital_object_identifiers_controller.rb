@@ -1,5 +1,6 @@
 class DigitalObjectIdentifiersController < ApplicationController
   before_action :set_digital_object_identifier, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 
 
@@ -12,7 +13,8 @@ class DigitalObjectIdentifiersController < ApplicationController
   # GET /digital_object_identifiers/1
   # GET /digital_object_identifiers/1.json
   def show
-    @url = @digital_object_identifier.urls.build
+      @url = @digital_object_identifier.urls.build
+      @comment = @digital_object_identifier.comments.build #(params[:comment].merge(:user_id => current_user.id))
   end
 
   # GET /digital_object_identifiers/new
@@ -67,15 +69,20 @@ class DigitalObjectIdentifiersController < ApplicationController
   end
 
   private
+    def correct_user
+      @digital_object_identifier = current_user.digital_object_identifiers.find_by(id: params[:id])
+      redirect_to root_url if @digital_object_identifier.nil?
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_digital_object_identifier
-      @digital_object_identifier = current_user.digital_object_identifiers.find(params[:id])
+      @digital_object_identifier = DigitalObjectIdentifier.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def digital_object_identifier_params
       params.require(:digital_object_identifier).permit(:string_identifier, :integer_identifier, :description, urls_attributes: [ :url ] )
     end
+    
 
     def edit_digital_object_identifier_params
       params.require(:digital_object_identifier).permit(:string_identifier, :integer_identifier, :description )

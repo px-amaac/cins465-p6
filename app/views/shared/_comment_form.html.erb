@@ -1,0 +1,6 @@
+<%= form_for([@digital_object_identifier, @comment]) do |f| %>
+	<div class="field">
+    <%= f.text_area :comment %>
+  </div>
+  <%= f.submit "Post New Comment", class: "btn btn-success" %>
+<% end %>

@@ -1,7 +1,8 @@
 DigitalObjecIdentifier::Application.routes.draw do
   
     resources :digital_object_identifiers do
-      resources :urls, only: [:create]
+      resources :urls, only: :create
+      resources :comments, only: :create
     end
 
 

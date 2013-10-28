@@ -23,9 +23,26 @@
   	</p>
   <% end %>
 </p>
-<section>
-    <%= render 'shared/url_form' %>
-</section>
+
+<% if @digital_object_identifier.user_id == current_user.id %>
+  <section>
+      <%= render 'shared/url_form' %>
+  </section>
+<% end %>
+
+<p>
+  <strong>Comments:</strong>
+  <% @digital_object_identifier.comments.each do |comment| %>
+
+    <p>
+      <%= comment.comment %> </br>
+      <%= comment.user_id %>
+    </p>
+    <% end %>
+
+  <section>
+      <%= render 'shared/comment_form' %>
+  </section>
 
 <%= link_to 'Edit', edit_digital_object_identifier_path(@digital_object_identifier) %> |
 <%= link_to 'Back', digital_object_identifiers_path %>

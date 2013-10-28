@@ -12,7 +12,7 @@ class UrlsController < ApplicationController
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_digital_object_identifier
-    @digital_object_identifier = current_user.digital_object_identifiers.find(params[:digital_object_identifier_id])
+    @digital_object_identifier = current_user.digital_object_identifiers.find_by( id: params[:digital_object_identifier_id])
     redirect_to root_url if @digital_object_identifier.nil?
   end
 
