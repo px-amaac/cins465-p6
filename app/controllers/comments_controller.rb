@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 		if @comment.save
 			flash[:success] = "Url Added"
-			redirect_to root_url
+			redirect_to @digital_object_identifier
 		end
 	end
 

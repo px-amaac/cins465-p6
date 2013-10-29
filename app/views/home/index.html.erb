@@ -1,10 +1,42 @@
 <div class="row">
-    <div class="large-12 columns">
-	    <ul data-orbit>
-	      <li><%= image_tag("doi-coffee.jpg") %></li>
-	      <li><%= image_tag("mishti-doi.jpg") %></li>
-	      <li><%= image_tag("doi.jpg") %></li>
-	      </ul>
-	    <hr />
+  <div class="large-12 columns">
+    <ul data-orbit>
+      <li><%= image_tag("doi-coffee.jpg") %></li>
+      <li><%= image_tag("mishti-doi.jpg") %></li>
+      <li><%= image_tag("doi.jpg") %></li>
+    </ul>
+    <hr />
+    <%= form_tag(root_path, :method => "get" ) do %>
+	    <%= label_tag(:search, "Search For:") %>
+	    <%= text_field_tag :search, params[:search], placeholder: "Search DOIs" %>
+	    <button class="btn" type="submit">Search</button>
+    <% end %>
+    <hr />
+    <% if @doi %>
+    	<% if @doi.first %>
+	    	<p>
+				  <strong>Name:</strong>
+				  <%= @doi.first.string_identifier %>
+				</p>
+
+				<p>
+				  <strong>Integer identifier:</strong>
+				  <%= @doi.first.integer_identifier %>
+				</p>
+
+				<p>
+				  <strong>Description:</strong>
+				  <%= @doi.first.description %>
+				</p>
+				<p>
+				  <strong>URL:</strong>
+				  <% @doi.first.urls.each do |url| %>
+				  	<p>
+				  	<%= url.url %>
+				  	</p>
+				  <% end %>
+				</p>
+			<% end %>
+    <% end %>
 	</div>
 </div>

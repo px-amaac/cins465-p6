@@ -5,7 +5,7 @@ class UrlsController < ApplicationController
 		@url = @digital_object_identifier.urls.build(url_params)
 		if @url.save
 			flash[:success] = "Url Added"
-			redirect_to root_url
+			redirect_to @digital_object_identifier
 		end
 	end
 

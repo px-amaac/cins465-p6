@@ -68,6 +68,7 @@ class DigitalObjectIdentifiersController < ApplicationController
     end
   end
 
+ 
   private
     def correct_user
       @digital_object_identifier = current_user.digital_object_identifiers.find_by(id: params[:id])

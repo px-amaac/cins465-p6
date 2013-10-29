@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 
 	def index
-		@users = User.all
+		if params[:search]
+			@doi = DigitalObjectIdentifier.search(params[:search]).order("created_at DESC")
+		end
 	end
 end

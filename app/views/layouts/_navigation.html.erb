@@ -16,6 +16,9 @@
       
       <% if user_signed_in? %>   
         <li>
+        <%= link_to 'DOIs', digital_object_identifiers_path %>
+        </li>
+        <li>
           <%= link_to 'Edit account', edit_user_registration_path %>
         </li>
         <li>

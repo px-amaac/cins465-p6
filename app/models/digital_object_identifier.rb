@@ -10,4 +10,9 @@ class DigitalObjectIdentifier < ActiveRecord::Base
 	validates :string_identifier, presence: true, uniqueness: true, length: { maximum: 20 }
 	validates :description, presence: true, length: { maximum: 255 }
 	
+
+	def self.search(query)
+    where("string_identifier like ?", query)
+  end
+
 end
