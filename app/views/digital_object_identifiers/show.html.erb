@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class ="panel row">
 <p>
   <strong>String identifier:</strong>
-  <%= @digital_object_identifier.string_identifier %>
+  <%= @digital_object_identifier.name %>
 </p>
 
 <p>
@@ -14,35 +14,47 @@
   <strong>Description:</strong>
   <%= @digital_object_identifier.description %>
 </p>
-
+</div>
+<div class ="panel row">
 <p>
   <strong>URL:</strong>
   <% @digital_object_identifier.urls.each do |url| %>
-  	<p>
-  	<%= url.url %>
-  	</p>
+
+    <% unless url == @digital_object_identifier.urls.last %>
+    	<p>
+    	Url: <%= url.url %>
+      </p>
+      <p>
+       Created At: <%= url.created_at %>
+    	</p>
+    <% end %>
   <% end %>
 </p>
+
 
 <% if @digital_object_identifier.user_id == current_user.id %>
   <section>
       <%= render 'shared/url_form' %>
   </section>
 <% end %>
-
+</div>
+<div class ="panel row">
 <p>
   <strong>Comments:</strong>
   <% @digital_object_identifier.comments.each do |comment| %>
 
+  <% unless comment == @digital_object_identifier.comments.last %>
     <p>
-      <%= comment.comment %> </br>
-      <%= comment.user_id %>
+      Comment <%= comment.id %>: <%= comment.comment %> </br>
     </p>
+  <% end %>
     <% end %>
 
   <section>
       <%= render 'shared/comment_form' %>
   </section>
 
+</p>
+</div>
 <%= link_to 'Edit', edit_digital_object_identifier_path(@digital_object_identifier) %> |
 <%= link_to 'Back', digital_object_identifiers_path %>

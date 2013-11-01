@@ -7,12 +7,12 @@ class DigitalObjectIdentifier < ActiveRecord::Base
 	accepts_nested_attributes_for :urls, :comments
 
 	validates :integer_identifier, presence: true, uniqueness: true, numericality: { only_integer: true }, length: { maximum: 10 }
-	validates :string_identifier, presence: true, uniqueness: true, length: { maximum: 20 }
+	validates :name, presence: true, uniqueness: true, length: { maximum: 20 }
 	validates :description, presence: true, length: { maximum: 255 }
 	
 
 	def self.search(query)
-    where("string_identifier like ?", query)
+    where("name like ?", query)
   end
 
 end

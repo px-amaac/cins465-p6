@@ -14,9 +14,10 @@
     <hr />
     <% if @doi %>
     	<% if @doi.first %>
+    	<div class ="panel row">
 	    	<p>
 				  <strong>Name:</strong>
-				  <%= @doi.first.string_identifier %>
+				  <%= @doi.first.name %>
 				</p>
 
 				<p>
@@ -29,13 +30,18 @@
 				  <%= @doi.first.description %>
 				</p>
 				<p>
+					<% if current_user %>
 				  <strong>URL:</strong>
-				  <% @doi.first.urls.each do |url| %>
-				  	<p>
-				  	<%= url.url %>
-				  	</p>
+					  <% @doi.first.urls.each do |url| %>
+					  	<p>
+					  	<%= url.url %>
+					  	</p>
+					  <% end %>
+					 <% else %>
+					 <%= @doi.first.urls.first.url %> 
 				  <% end %>
 				</p>
+			</div>
 			<% end %>
     <% end %>
 	</div>

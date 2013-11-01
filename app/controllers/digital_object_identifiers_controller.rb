@@ -1,4 +1,4 @@
-class DigitalObjectIdentifiersController < ApplicationController
+ class DigitalObjectIdentifiersController < ApplicationController
   before_action :set_digital_object_identifier, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
@@ -14,7 +14,7 @@ class DigitalObjectIdentifiersController < ApplicationController
   # GET /digital_object_identifiers/1.json
   def show
       @url = @digital_object_identifier.urls.build
-      @comment = @digital_object_identifier.comments.build #(params[:comment].merge(:user_id => current_user.id))
+      @comment = @digital_object_identifier.comments.build  #(params[:comment].merge(:user_id => current_user.id))
   end
 
   # GET /digital_object_identifiers/new
@@ -81,11 +81,11 @@ class DigitalObjectIdentifiersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def digital_object_identifier_params
-      params.require(:digital_object_identifier).permit(:string_identifier, :integer_identifier, :description, urls_attributes: [ :url ] )
+      params.require(:digital_object_identifier).permit(:name, :integer_identifier, :description, urls_attributes: [ :url ] )
     end
     
 
     def edit_digital_object_identifier_params
-      params.require(:digital_object_identifier).permit(:string_identifier, :integer_identifier, :description )
+      params.require(:digital_object_identifier).permit(:name, :integer_identifier, :description )
     end
 end
