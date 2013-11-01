@@ -6,6 +6,7 @@ DigitalObjecIdentifier::Application.routes.draw do
     end
 
 
+
   devise_for :users
 
   root :to => "home#index"

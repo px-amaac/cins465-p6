@@ -1,7 +1,7 @@
 class DigitalObjectIdentifiersController < ApplicationController
   before_action :set_digital_object_identifier, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:show]
 
 
   # GET /digital_object_identifiers

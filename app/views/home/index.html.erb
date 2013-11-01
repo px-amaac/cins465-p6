@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-4 columns">
     <ul data-orbit>
       <li><%= image_tag("doi-coffee.jpg") %></li>
       <li><%= image_tag("mishti-doi.jpg") %></li>
       <li><%= image_tag("doi.jpg") %></li>
     </ul>
-    <hr />
+   <hr />
     <%= form_tag(root_path, :method => "get" ) do %>
 	    <%= label_tag(:search, "Search For:") %>
 	    <%= text_field_tag :search, params[:search], placeholder: "Search DOIs" %>
