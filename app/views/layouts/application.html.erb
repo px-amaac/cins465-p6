@@ -13,19 +13,27 @@
 
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+        <%= favicon_link_tag "DOI-150x150.jpg" %>
+	<title><%= content_for?(:title) ? yield(:title) : "DOI server" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
+	<%= yield(:head) %>
   </head>
-
-  <body>
-
-    <%= yield %>
-
-    
+ <body class="<%= controller_name %> <%= action_name %>">
+  <div id="container" class="container">
+    <body>
+        <header>
+          <%= render 'layouts/navigation' %> 
+        </header>
+        <div class="row">
+          <div class="large-12 columns">
+            <div id="main" role="main">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
     <%= javascript_include_tag "application" %>
-  </body>
+   </body>
 </html>
