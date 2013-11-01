@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131026223521) do
   end
 
   create_table "digital_object_identifiers", force: true do |t|
-    t.string   "name"
+    t.string   "string_identifier"
     t.integer  "integer_identifier"
     t.text     "description"
     t.integer  "user_id"
